@@ -4,9 +4,11 @@ const mongoose = require("mongoose");
 const app = express();
 const vendorRoutes = require("./routes/vendorRoutes");
 const bodyparser = require("body-parser")
+const cors = require("cors")
 const PORT = process.env.PORT || 4000;
 
 dotEnv.config();
+app.use(cors());
 mongoose.connect(process.env.mongo_uri)
     .then(() => {
         console.log("Connected sucessfully Bro.....")
